@@ -20,6 +20,6 @@ setup(
     version="0.0.1",
     author="Shreya Rai",
     author_email="shreya200199@gmail.com",
-    install_requires=get_requirements("requirements.txt"),  # Pass file path here
+    install_requires=get_requirements("/Users/shreyarai/Documents/DeepLearning Project/DeepLearning/requirements_dev.txt"), 
     packages=find_packages(),
 )
