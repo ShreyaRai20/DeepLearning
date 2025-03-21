@@ -21,7 +21,6 @@ class DataIngestion:
                 folder=self.data_ingestion_config.data_path,
                 bucket_name=self.data_ingestion_config.bucket_name,
                 bucket_folder_name=self.data_ingestion_config.s3_data_folder,
-
             )
 
 
@@ -29,9 +28,25 @@ class DataIngestion:
             raise XRayException(e,sys)
         
     def initiate_data_ingestion(self):
+        logging.info(
+            "Entered the initiate_data_ingestion method of Data ingestion class"
+        )
+
         try:
-            pass
+            self.get_data_from_s3()
+
+            data_ingestion_artifact: DataIngestionArtifact = DataIngestionArtifact(
+                train_file_path=self.data_ingestion_config.train_data_path,
+                test_file_path=self.data_ingestion_config.test_data_path,
+            )
+
+            logging.info(
+                "Exited the initiate_data_ingestion method of Data ingestion class"
+            )
+
+            return data_ingestion_artifact
+
         except Exception as e:
-            raise XRayException(e,sys)
+            raise XRayException(e, sys)
 
 
